@@ -1,0 +1,2 @@
+# Ticket Booking
+ A simple ticket booking system with a graphical user interface. There are three types of tickets: adult, child, student/senior. Users enter the number of tickets they want to purchase for each type. The system will calculate the total price for the order. The venue can accommodate no more than 100 people. This means that a maximum of 100 tickets can be sold.
