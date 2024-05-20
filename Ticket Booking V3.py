@@ -10,7 +10,7 @@ class Ticket:
     def __init__(self,type):
         self.type = type
         self.lbl_text = (f"{self.type}: ${pricing[self.type]}")
-        self.amt = IntVar()
+        self.amt = StringVar(window, '0')
     def lbl_print(self):
         labels = Label(window,text=self.lbl_text)
         labels.grid(row=list(pricing.keys()).index(self.type),column=0,sticky="WE",ipady=8,ipadx=15)
@@ -18,12 +18,12 @@ class Ticket:
         entries = Entry(window,textvariable=self.amt)
         entries.grid(row=list(pricing.keys()).index(self.type),column=1,sticky="WE",ipady=8,ipadx=15)
     def calculate(self):
-        return ((self.amt.get())**2)**0.5 * pricing[self.type]
+        return (int(self.amt.get())**2)**0.5 * pricing[self.type]
 def calculate_total():
     global total_tickets
     total_tickets = 0
     for i in pricing:
-        total_tickets += tickets[i].amt.get()
+        total_tickets += int(tickets[i].amt.get())
     if total_tickets > 100:
         total_lbl = Label(window, text="Too many tickets")
     else:
